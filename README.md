@@ -78,24 +78,6 @@ Navigate to `backend/SportsFacilities-system-booking/` and create `.env`:
 ```bash
 cp backend/SportsFacilities-system-booking/.env.example backend/SportsFacilities-system-booking/.env
 ```
-Example `.env` content:
-```env
-# Database Configuration
-DB_URL=jdbc:postgresql://localhost:5435/sportsFacilities_db
-DB_USERNAME=boss
-DB_PASSWORD=root
-
-# Security Secrets
-JWT_SECRET=843567893696976453275974432697R634976R738467TR678T34865R6834R8763T478378637664538745673865783678548735687R3
-
-# Default Admin Credentials
-ADMIN_EMAIL=admin@gmail.com
-ADMIN_PASSWORD=admin123
-
-# Docker pgAdmin Credentials
-PGADMIN_EMAIL=admin@admin.com
-PGADMIN_PASSWORD=root
-```
 
 #### Frontend `.env` Setup
 Navigate to `frontend/` and create `.env`:
