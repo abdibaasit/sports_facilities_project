@@ -1,0 +1,37 @@
+networks:
+  postgres-network:
+    driver: bridge
+
+services:
+  postgres:
+    container_name: postgres-sportsFacilities
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-boss}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - postgres-network
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin4-sportsFacilities
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@admin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-root}
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - postgres-network
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  pgadmin-data:
